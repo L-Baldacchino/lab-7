@@ -2,11 +2,13 @@
 module.exports = function(sequelize, DataTypes) {
   var Post = sequelize.define('Post', {
     title: {
-      allownull:false,
-      type: DataTypes.STRING},
-    content: {
-      allownull:false,
-      type: DataTypes.TEXT},
+      type: DataTypes.STRING,
+      validate: { notEmpty: true }
+      },
+      content: {
+      type: DataTypes.TEXT,
+      validate: { notEmpty: true }
+      }
   }, {
     classMethods: {
       associate: function(models) {
